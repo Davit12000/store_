@@ -5,7 +5,8 @@ use App\Models\Product;
 class Service
 {
     public function store($data){
-        $post = Product::create($data);
+        $data['image'] = $data['image']->getClientOriginalName();
+        Product::create($data);
     }
     public function update($product, $data){
         $product->update($data);
