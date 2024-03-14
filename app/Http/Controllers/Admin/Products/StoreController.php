@@ -10,9 +10,9 @@ class StoreController extends Controller
 {
   public function __invoke(StoreRequest $request)
   {
+    $data = $request->validated();
     $file = $request->file('image');
     dd($file);
-    $data = $request->validated();
     $this->service->store($data);
     
   return redirect()->route('admin.products.index');

@@ -1,7 +1,7 @@
 @extends('layouts/admin')
 @section('content')
 
-<form action="{{route('admin.product.store')}}" method="POST">
+<form action="{{route('admin.product.store')}}" method="POST" enctype="multipart/form-data">
   @csrf
     <div class="form-group">
       <label for="title">Title</label>
