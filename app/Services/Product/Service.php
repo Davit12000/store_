@@ -5,7 +5,10 @@ use App\Models\Product;
 class Service
 {
     public function store($data){
-        $data['image'] = $data['image']->getClientOriginalName();
+        $file = $data['image'];
+        $fileName = $file->getClientOriginalName();
+        $file->move(public_path('uploads'), $fileName);
+        $data['image'] = $fileName;
         Product::create($data);
     }
     public function update($product, $data){
