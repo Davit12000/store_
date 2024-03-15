@@ -43,11 +43,11 @@
     <div class='row'>
         <nav>
             <ul>
-                <li><a href='{{route('main')}}'>Home</a></li>
-                <li><a href='{{route('products')}}'>Products</a></li>
-                <li><a href='{{route('about')}}'>About</a></li>
-                <li><a href='{{route('contacts')}}'>Contacts</a></li>
-                <li><a href='{{route('admin.products.index')}}'>Admin</a></li>
+                <li class="menu"><a href='{{route('main')}}'>Home</a></li>
+                <li class="menu"><a href='{{route('products')}}'>Products</a></li>
+                <li class="menu"><a href='{{route('about')}}'>About</a></li>
+                <li class="menu"><a href='{{route('contacts')}}'>Contacts</a></li>
+                <li class="menu"><a href='{{route('admin.products.index')}}'>Admin</a></li>
             </ul>
         </nav>
     </div>

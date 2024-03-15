@@ -1,0 +1,17 @@
+.product_image{
+    background: red;
+}
+.products {
+    margin: 10px;
+    background: #e0f5d0;
+    padding: 10px;
+    border-radius: 5px;
+    display: inline-block;
+    text-align: center;
+}
+.menu {
+    border: 1px solid red;
+    display: inline-block;
+    background: green;
+    padding: 5px;
+}

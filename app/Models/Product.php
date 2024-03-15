@@ -11,4 +11,7 @@ class Product extends Model
     protected $guarded = false;
     use SoftDeletes;
     use HasFactory;
+    public function users(){
+        return $this->belongsToMany(User::class);
+    }
 }

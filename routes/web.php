@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['namespace'=>'App\Http\Controllers'], function(){
     Route::get('/main', 'MainController')->name('main');
+    Route::get('/basket', 'BasketController')->name('basket');
     Route::get('/contacts', 'ContactController')->name('contacts');
     Route::get('/about', 'AboutController')->name('about');
 
