@@ -18,7 +18,8 @@
           <strong>Incorrect Content</strong>
       </span>
   @enderror
-      Image: <input type="text" name='image' class="form-control @error('image') is-invalid @enderror" id="image" value='{{$product->image}}' placeholder="image" required><br>
+  Current image: <img src="{{asset('uploads'.'/'.$product->image)}}"><br>
+      Image: <input type="file" name='image' class="form-control @error('image') is-invalid @enderror" id="image"><br>
       @error('image')
     <span class="invalid-feedback" role="alert">
         <strong>Incorrect image</strong>

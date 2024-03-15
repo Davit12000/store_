@@ -3,7 +3,7 @@
 <div>
 <div>{{$product->id}}.{{$product->title}}</div>
 <div>{{$product->content}}</div>
-nkar: <div>{{$product->image}}</div>
+nkar: <div><img src='{{asset('uploads'.'/'.$product->image)}}'></div>
 </div>
 <div><a href="{{route('products')}}">Back</a></div>
     @endsection

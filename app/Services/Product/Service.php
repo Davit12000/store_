@@ -12,6 +12,7 @@ class Service
         Product::create($data);
     }
     public function update($product, $data){
+        dd($data['image']);
         $product->update($data);
     }
     
