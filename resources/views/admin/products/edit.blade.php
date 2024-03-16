@@ -1,7 +1,7 @@
 @extends('layouts/admin')
 @section('content')
 
-<form action="{{route('admin.product.update', $product->id)}}" method="POST">
+<form action="{{route('admin.product.update', $product->id)}}" method="POST" enctype="multipart/form-data">
     @csrf
     @method('patch')
     <div class="form-group">

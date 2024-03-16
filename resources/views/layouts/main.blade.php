@@ -47,7 +47,11 @@
                 <li class="menu"><a href='{{route('products')}}'>Products</a></li>
                 <li class="menu"><a href='{{route('about')}}'>About</a></li>
                 <li class="menu"><a href='{{route('contacts')}}'>Contacts</a></li>
+                <li class="menu"><a href='{{route('basket')}}'>My Basket</a></li>
+                @can('view', auth()->user())
                 <li class="menu"><a href='{{route('admin.products.index')}}'>Admin</a></li>
+                @endcan
+                
             </ul>
         </nav>
     </div>

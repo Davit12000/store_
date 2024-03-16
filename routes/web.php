@@ -16,18 +16,26 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['namespace'=>'App\Http\Controllers'], function(){
     Route::get('/main', 'MainController')->name('main');
-    Route::get('/basket', 'BasketController')->name('basket');
     Route::get('/contacts', 'ContactController')->name('contacts');
     Route::get('/about', 'AboutController')->name('about');
 
     Route::group(['namespace'=>'Products'], function(){
-    Route::get('/products', 'ProductController')->name('products');
-    Route::get('/products/{product}', 'ShowController')->name('product.show');
+        Route::get('/products', 'ProductController')->name('products');
+        Route::get('/products/{product}', 'ShowController')->name('product.show');
     });
 });
+
+Route::group(['namespace'=>'App\Http\Controllers', 'middleware' => 'user'], function(){
+    Route::post('/basket', 'UpdateBasketController')->name('update.basket');
+    Route::delete('/basket/{product}', 'Basket\RemoveBasketController')->name('remove.basket');
+    Route::get('/basket', 'Basket\BasketController')->name('basket');
+    Route::get('/basket/buy', 'Basket\BuyController')->name('basket.buy');
+});
+
 Route::group(['namespace'=>'App\Http\Controllers\Admin\Products', 'prefix' => 'admin', 'middleware' => 'admin'], function(){
     Route::post('products', 'StoreController')->name('admin.product.store');
     Route::get('products', 'ProductController')->name('admin.products.index');
+    Route::get('', 'AdminController')->name('admin');
     Route::get('products/create', 'CreateController')->name('admin.product.create');
     Route::get('products/{product}', 'ShowController')->name('admin.product.show');
     Route::delete('products/{product}', 'DestroyController')->name('admin.product.delete');
@@ -36,6 +44,9 @@ Route::group(['namespace'=>'App\Http\Controllers\Admin\Products', 'prefix' => 'a
     });
 
 Auth::routes();
+
+
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);

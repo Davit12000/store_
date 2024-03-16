@@ -10,7 +10,7 @@ class ProductController extends Controller
 {
     public function __invoke()
   {
-    $products = Product::paginate(10);
+    $products = Product::where('count', '>', 0 )->get();
     return view('products.index', compact('products'));
   }
 }

@@ -1,7 +1,10 @@
 .product_image{
-    background: red;
+    width: 100px;
+    height: 100px;
 }
 .products {
+    width: 350px;
+    height: 300px;
     margin: 10px;
     background: #e0f5d0;
     padding: 10px;
@@ -14,4 +17,11 @@
     display: inline-block;
     background: green;
     padding: 5px;
+}
+.remove {
+    float: right;
+}
+.color-black {
+    text-decoration: none;
+    color: black;
 }

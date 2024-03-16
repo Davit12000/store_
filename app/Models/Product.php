@@ -12,6 +12,8 @@ class Product extends Model
     use SoftDeletes;
     use HasFactory;
     public function users(){
-        return $this->belongsToMany(User::class);
+        return $this->belongsToMany(User::class, 'Baskets', 'product_id', 'user_id')->withPivot([
+            'product_count'
+        ]);
     }
 }

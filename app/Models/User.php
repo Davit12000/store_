@@ -24,8 +24,11 @@ class User extends Authenticatable
     ];
     public function products()
     {
-        return $this->belongsToMany(Product::class);
+        return $this->belongsToMany(Product::class, 'Baskets', 'user_id', 'product_id')->withPivot([
+            'product_count'
+        ]);
     }
+    
 
     /**
      * The attributes that should be hidden for serialization.

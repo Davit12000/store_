@@ -12,8 +12,17 @@ class Service
         Product::create($data);
     }
     public function update($product, $data){
-        dd($data['image']);
+        if(isset($data['image'])){
+            if(file_exists(public_path('uploads/'.$product->image))){
+                unlink(public_path('uploads/'.$product->image));
+                }
+            $file = $data['image'];
+            $fileName = $file->getClientOriginalName();
+            $file->move(public_path('uploads'), $fileName);
+            $data['image'] = $fileName;
+        }
         $product->update($data);
+        
     }
     
 }
